@@ -10,7 +10,8 @@ pool:
   vmImage: windows-latest
 
 steps:
-- powershell: |
-    Write-Host "Running on Windows VM"
-    systeminfo | findstr /B /C:"OS Name"
-  displayName: 'Verify Windows Agent'
+- script: |
+    echo Starting batch file
+    runTests.bat
+    echo Batch file completed
+  displayName: Run Tests
