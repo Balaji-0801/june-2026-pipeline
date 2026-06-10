@@ -10,8 +10,10 @@ pool:
   vmImage: windows-latest
 
 steps:
-- script: |
-    echo Starting batch file
-    runTests.bat
-    echo Batch file completed
+- powershell: |
+    dir C:\
+    dir C:\ProgramData
+  displayName: Check Folders
+
+- script: runTests.bat
   displayName: Run Tests
